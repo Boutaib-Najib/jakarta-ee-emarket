@@ -11,6 +11,15 @@
 
     <h:body>
         <f:view>
+            <h:dataTable value="#{shoppingCartManager.items}" var="item">
+                <h:column headerText="Produit">
+                    <h:outputText value="#{item.product.name}" />
+                </h:column>
+                <h:column headerText="Quantité">
+                    <h:outputText value="#{item.amount}" />
+                </h:column>
+            </h:dataTable>
+            <h:outputText value="Total : #{shoppingCartManager.totalPrice()}" />
             <h:form>
                 <h:commandLink action="goHome" value="Home"/>
             </h:form>

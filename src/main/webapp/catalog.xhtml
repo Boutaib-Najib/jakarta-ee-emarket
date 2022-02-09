@@ -20,6 +20,13 @@
                 <h:column headerText="Prix">
                     <h:outputText value="#{product.price}" />
                 </h:column>
+                <h:column headerText="Add To Cart">
+                    <h:form>
+                        <h:commandButton value="Add to cart" action="#{shoppingCartManager.addToCart()}">
+                            <f:setPropertyActionListener value="#{product}" target="#{shoppingCartManager.toAdd}" />
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
             </h:dataTable>
             <h:form>
                 <h:commandLink action="goHome" value="Home"/>
