@@ -41,10 +41,16 @@ public class ShoppingCartManager implements Serializable {
         this.toAdd = toAdd;
     }
 
-    public String addToCart() {
-        ShoppingCartItem item = new ShoppingCartItem(1, 1, this.toAdd);
-        this.items.add(item);
-        return "toShoppingCart";
+    public void addToCart() {
+        ShoppingCartItem itemFound = this.items.stream().filter(
+                cartItem -> cartItem.getProduct().getId() == this.toAdd.getId()
+        ).findFirst().orElse(null);
+
+        if (itemFound == null) {
+            this.items.add(new ShoppingCartItem(1, 1, this.toAdd));
+        } else {
+            itemFound.setAmount(itemFound.getAmount() + 1);
+        }
     }
 
     public double totalPrice() {
