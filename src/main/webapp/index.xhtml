@@ -7,10 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
    <h:head>
       <title>eMarket - Acceuil</title>
-      <h:outputStylesheet value="styling.css"/>
+      <h:outputStylesheet name="css/styling.css" target="head"/>
    </h:head>
    <h:body>
       <f:view>
+         <h2>Bienvenue dans l'application de vente e-Market</h2>
+         <p>Cett application est développée par Ennassef Ismail & Boutaib Najib</p>
          <h:form>
             <h:commandLink action="toCatalog" value="Catalog"/> <br />
             <h:commandLink action="toCart" value="Cart"/> <br />
